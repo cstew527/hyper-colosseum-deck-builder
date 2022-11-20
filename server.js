@@ -14,6 +14,8 @@ app.get('/cards', (req, res) => {
         res.render('card.ejs', {
             card: allCards
         })
+    }).sort({
+        cardName: 1
     })
 })
 

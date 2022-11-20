@@ -27,12 +27,13 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Github Repository</a>
+                <a class="nav-link" href="https://github.com/cstew527/hyper-colosseum-deck-builder">Github Repository</a>
             </li>
         </ul>
-        <h1>Card index page</h1>
         <div class="album py-5 bg-light">
             <div class="container">
+                <h1 class="mt-5">Card Database</h1>
+                <input type="search" id="filter-dq" class="form-control" placeholder="Search Card Database..." style="margin-bottom: 10px;">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-auto g-3">
                     <% for (let i = 0; i < card.length; i++) { %>
                         <div class="col">
