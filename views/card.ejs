@@ -6,45 +6,93 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>HTML 5 Boilerplate</title>
         <link rel="stylesheet" href="style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <%- include ('./partials/bootstrap.ejs') %>
     </head>
     <body>
-        <ul class="nav nav-pills justify-content-center" style="padding: 10px;">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Card Database</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/cards">Card Database</a></li>
-                    <li><a class="dropdown-item disabled" href="">Packs</a></li>
-                    <li><a class="dropdown-item disabled" href="">Custom Card Maker</a></li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Decks</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item disabled" href="#">Decks</a></li>
-                    <li><a class="dropdown-item disabled" href="#">Deck Builder</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/cstew527/hyper-colosseum-deck-builder">Github Repository</a>
-            </li>
-        </ul>
+        <%- include ('./partials/navbar.ejs') %>
         <div class="album py-5 bg-light">
             <div class="container">
                 <h1 class="mt-5">Card Database</h1>
-                <input type="search" id="filter-dq" class="form-control" placeholder="Search Card Database..." style="margin-bottom: 10px;">
+                <p>Search the database by Name or Description.</p>
+                <input type="search" id="filter-dq" class="form-control mb-3" placeholder="Search Card Database...">
+                <div class="row mb-3">
+                    <div class="col">
+                        <select class="form-select" aria-label="Select Frame Color" id="frameColor" name="frameColor">
+                            <option selected>Select Frame Color</option>
+                            <option value="1">Blue</option>
+                            <option value="2">Red</option>
+                            <option value="3">Gold</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" aria-label="Select Card Type">
+                            <option selected>Select Type</option>
+                            <option value="1">Digimon</option>
+                            <option value="2">Option</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" aria-label="Select Level" id="level">
+                            <option selected>Select Level</option>
+                            <option value="1">Level III</option>
+                            <option value="2">Level IV</option>
+                            <option value="3">Perfect</option>
+                            <option value="4">Ultimate</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" aria-label="Select Digimon Type">
+                            <option selected>Select Type</option>
+                            <option value="1">Amphibian</option>
+                            <option value="2">Ancient Beast</option>
+                            <option value="3">Ancient Fish</option>
+                            <option value="4">Angel</option>
+                            <option value="5">Aquatic Beast Man</option>
+                            <option value="6">Aquatic Mammal</option>
+                            <option value="7">Beast</option>
+                            <option value="8">Beast Man</option>
+                            <option value="9">Ceratopsian</option>
+                            <option value="10">Chick</option>
+                            <option value="11">Composite</option>
+                            <option value="12">Demon Man</option>
+                            <option value="13">Dinosaur</option>
+                            <option value="14">Fairy</option>
+                            <option value="15">Flame</option>
+                            <option value="16">Ghost</option>
+                            <option value="17">Giant Bird</option>
+                            <option value="18">Insect</option>
+                            <option value="19">Larva</option>
+                            <option value="20">Mammal</option>
+                            <option value="21">Marine Animal</option>
+                            <option value="22">Mollusk</option>
+                            <option value="23">Mutant</option>
+                            <option value="24">Ore</option>
+                            <option value="25">Plant</option>
+                            <option value="26">Reptile</option>
+                            <option value="27">Rock</option>
+                            <option value="28">Skeleton</option>
+                            <option value="29">Small Devil</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-auto g-3">
-                    <% for (let i = 0; i < card.length; i++) { %>
+                    <% for (let card of cards) { %>
                         <div class="col">
                             <div class="card shadow-sm" style="width:200px">
-                                <img src="<%= card[i].cardArt %>" class="img-fluid img-thumbnail" >
+                                <a href="/cards/<%= card.cardNumber %>">
+                                    <img src="<%= card.cardArt %>" class="img-fluid img-thumbnail">
+                                </a>
                             </div>
                         </div>
                     <% } %>    
                 </div>
             </div>
         </div>
-
+        <script>
+            const filterCard = () => {
+                const frameValue = document.getElementById("frameColor")
+                console.log(frameValue.value)
+            }
+        </script>
     </body>
 </html>
