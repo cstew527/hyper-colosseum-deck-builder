@@ -9,8 +9,7 @@ const cardSchema = new mongoose.Schema({
     // Digimon specific
     battleType: String,
     evoFuseAppear: String,
-    evoReqField1: [String],
-    evoReqField2: [String],
+    evoReqField: [[String]],
     level: String,
     flavorText: String,
     type: String,

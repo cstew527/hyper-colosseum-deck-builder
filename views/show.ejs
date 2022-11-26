@@ -1,10 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HTML 5 Boilerplate</title>
+        <%- include ('./partials/bootstrap.ejs') %>
     </head>
     <body>
-        <h1>Show page</h1>
+        <%- include ('./partials/navbar.ejs') %>
+        <div class="container py-5">
+            <nav aria-label="breadcrumb" style="padding-top: 40px;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/cards">Cards</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><%= cards.cardName %></li>
+                </ol>
+            </nav>
+            <div class="card-area" style="min-height: 480px;">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            <div class="cardImage">
+                                <figure>
+                                    <img title="<%= cards.cardName %>" src="<%= cards.cardArt %>">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card-name">
+                                <h1><%= cards.cardName %></h1>
+                                <h5><%= cards.cardNumber %></h5>
+                            </div>
+                            <% if (typeof cards.battleType !== 'undefined') { %>
+                                <div class="container text-center">
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <% if (cards.battleType == 'A') { %>
+                                                <div class="card text-bg-danger">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Battle Type</h5>
+                                                        <p class="card-text"><%= cards.battleType %></p>
+                                                    </div>
+                                                </div>
+                                            <% } else if (cards.battleType == 'B') { %>
+                                                <div class="card text-bg-success">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Battle Type</h5>
+                                                        <p class="card-text"><%= cards.battleType %></p>
+                                                    </div>
+                                                </div>
+                                            <% } else if (cards.battleType == 'C') { %>
+                                                <div class="card text-bg-warning">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Battle Type</h5>
+                                                        <p class="card-text"><%= cards.battleType %></p>
+                                                    </div>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card text-bg-primary">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Level</h5>
+                                                    <p class="card-text"><%= cards.level %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card text-bg-primary">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Type</h5>
+                                                    <p class="card-text"><%= cards.type %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <div class="card text-bg-primary">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Attribute</h5>
+                                                    <p class="card-text"><%= cards.attribute %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card text-bg-primary">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Field</h5>
+                                                    <p class="card-text"><%= cards.field %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card text-bg-primary">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Group</h5>
+                                                    <% if (typeof cards.group !== 'undefined') { %>
+                                                        <p class="card-text"><%= cards.group %></p>
+                                                    <% } else { %>
+                                                        <p class="card-text">N/A</p>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <div class="card text-bg-danger">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">A Attack</h5>
+                                                    <p class="card-text"><%= cards.attacks[0] %> - <%= cards.attackPower[0] %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card text-bg-success">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">B Attack</h5>
+                                                    <p class="card-text"><%= cards.attacks[1] %> - <%= cards.attackPower[1] %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card text-bg-warning">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">C Attack</h5>
+                                                    <p class="card-text"><%= cards.attacks[2] %> - <%= cards.attackPower[2] %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5>Lost Points</h5>
+                                    <div class="card-group mb-2">
+                                        <div class="card text-bg-primary">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Level III</h5>
+                                                <p class="card-text"><%= cards.lostPoints[0] %></p>
+                                            </div>
+                                        </div>
+                                        <div class="card text-bg-primary">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Level IV</h5>
+                                                <p class="card-text"><%= cards.lostPoints[1] %></p>
+                                            </div>
+                                        </div>
+                                        <div class="card text-bg-primary">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Perfect</h5>
+                                                <p class="card-text"><%= cards.lostPoints[2] %></p>
+                                            </div>
+                                        </div>
+                                        <div class="card text-bg-primary">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Ultimate</h5>
+                                                <p class="card-text"><%= cards.lostPoints[3] %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% if (cards.evoFuseAppear == 'evolution') { %>
+                                        <div class="card text-start mb-2 text-bg-light">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Evolution Requirements</h5>
+                                                <% for (let i = 0; i < cards.evoReqField[0].length; i++) { %>
+                                                    <% if (cards.evoReqField[0][i] == "{{LV3}}") { %>
+                                                        <p class="card-text">
+                                                            Unless this Digimon is replaced with another Level III Digimon, it cannot be sent to the Dark Area.
+                                                        </p>
+                                                    <% } %>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                    <div class="card text-start mb-2 text-bg-light">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Flavor Text</h5>
+                                            <p class="card-text">
+                                                <%= cards.flavorText %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card text-start mb-2 text-bg-light">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Information/Coordination Field</h5>
+                                            <% if (typeof cards.group !== 'undefined') { %>
+                                                <p class="card-text"><%= cards.infoField %></p>
+                                            <% } else { %>
+                                                <p class="card-text">N/A</p>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="card text-start mb-2 text-bg-light">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Special Abilities</h5>
+                                            <% if (typeof cards.group !== 'undefined') { %>
+                                                <p class="card-text"><%= cards.abilitiesField %></p>
+                                            <% } else { %>
+                                                <p class="card-text">N/A</p>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

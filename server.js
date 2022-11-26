@@ -22,10 +22,10 @@ app.get('/cards', (req, res) => {
 })
 
 // Main card detail page
-app.get('/cards/:cardNumber', (req, res) => {
-    Card.findById(req.params.cardNumber, (err, foundCard) => {
+app.get('/cards/:_id', (req, res) => {
+    Card.findById(req.params._id, (err, foundCard) => {
         res.render('show.ejs', {
-            card: foundCard
+            cards: foundCard
         })
     })
 })
