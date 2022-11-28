@@ -12,6 +12,14 @@
         <h1 class="mt-5 text-center">Create New Card</h1>
         <div class="container">
             <form action="/cards" method="POST">
+                <!-- Card Type -->
+                <div class="mb-3">
+                    <label for="cardType" class="form-label">Card Type</label>
+                    <select name="cardType" id="cardType" class="form-select">
+                        <option value="digimon">Digimon</option>
+                        <option value="Option">Option</option>
+                    </select>
+                </div>
                 <!-- Change card name -->
                 <div class="mb-3">
                     <label for="cardName" class="form-label">Card Name</label>
@@ -193,7 +201,7 @@
                     <input type="text" class="form-control" name="requirements" id="requirements">
                 </div>
                 <!-- Effects Field -->
-                <div class="mb-3">
+                <div class="mb-3" id="effectsField">
                     <label for="effectsField" class="form-label">Effects Field</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="effectsField[]" id="effectsField">

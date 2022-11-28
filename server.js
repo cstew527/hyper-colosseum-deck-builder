@@ -4,6 +4,7 @@ const app = express()
 const Card = require('./models/cards.js')
 const cardInfo = require('./models/cardSeed.js')
 const Deck = require('./models/decks.js')
+const deckInfo = require('./models/deckSeed.js')
 const methodOverride = require('method-override')
 
 // Card.collection.drop()
@@ -13,6 +14,13 @@ const methodOverride = require('method-override')
 // Card.create(cardInfo, (err, data) => {
 //     if (err) console.log (err.message)
 //     console.log("add provided cards data")
+// })
+
+// Deck.collection.drop()
+
+// Deck.create(deckInfo, (err, data) => {
+//     if (err) console.log (err.message)
+//     console.log("add provided deck")
 // })
 
 app.use(methodOverride('_method'))
@@ -62,11 +70,21 @@ app.get('/cards', (req, res) => {
             conditions.type = query.type
         }
 
+        if (query.attribute) {
+            conditions.attribute = query.attribute
+        }
+
+        if (query.field) {
+            conditions.field = query.field
+        }
+
+        if (query.battleType) {
+            conditions.battleType = query.battleType
+        }
+
         console.log(conditions)
 
-        Card.find(
-            conditions
-        , (err, allCards) => {
+        Card.find(conditions, (err, allCards) => {
             res.render('./cardGallery.ejs', {
                 cards: allCards
             })
@@ -120,7 +138,7 @@ app.get('/cards/:_id/edit', (req, res) => {
 app.put('/cards/:_id', (req, res) => {
     Card.findByIdAndUpdate(req.params._id, req.body, (err, updatedModel) => {
         // res.send(updatedModel)
-        res.redirect('/cards')
+        res.redirect('/cards/')
     })
 })
 
@@ -131,7 +149,13 @@ app.delete('/cards/:_id', (req, res) => {
     })
 })
 
-
+app.get('/decks', (req, res) => {
+    Deck.find({}, (err, foundDecks) => {
+        res.render('./deckIndex.ejs', {
+            decks: foundDecks
+        })
+    })
+})
 
 app.listen(3000, () => {
     console.log('listening')

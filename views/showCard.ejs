@@ -179,7 +179,7 @@
                                                             <p class="card-text">
                                                                 Unless this Digimon is replaced with another Level III Digimon, it cannot be sent to the Dark Area.
                                                             </p>
-                                                        <% } else { %>
+                                                        <% } else if (cards.evoReqField[0][i]) { %>
                                                             <li class="list-group-item"><%= `${cards.evoReqField[0][i]} ⇒ ${cards.evoReqField[1][i]}` %></li>
                                                         <% } %>
                                                     <% } %>

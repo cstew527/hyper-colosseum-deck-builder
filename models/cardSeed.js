@@ -232,5 +232,267 @@ module.exports = [
             "◎ When there is a red frame Digimon on the opponent's sheet, add 400 to your attack power.",
             "◎ Cannot receive the effects of the opponent's Option cards."
         ],
+    }, {
+        cardName: "Piyomon",
+        cardNumber: "St-3",
+        frameColor: "blue",
+        cardArt: "https://wikimon.net/images/6/68/St-3.jpg",
+        battleType: "A",
+        evoFuseAppear: "evolution",
+        evoReqField: [
+            ["{{LV3}}"]
+        ],
+        level: "Level III",
+        flavorText: "It's very pretty when it's flying!",
+        type: "Chick",
+        attribute: "Vaccine",
+        field: [
+            "Wind Guardians"
+        ],
+        attacks: [
+            "Magical Fire",
+            "Hard Beak",
+            "{{grd}}"
+        ],
+        attackPower: [
+            360, 240, 130
+        ],
+        lostPoints: [
+            10, 10, 10, 10
+        ],
+        abilitiesField: [
+            "◎Has the ability \"sky\"."
+        ]
+    }, {
+        cardName: "Birdramon",
+        cardNumber: "St-4",
+        frameColor: "blue",
+        cardArt: "https://wikimon.net/images/7/72/St-4.jpg",
+        battleType: "B",
+        evoFuseAppear: "evolution",
+        evoReqField: [
+            ["Piyomon"],
+            ["●●"]
+        ],
+        level: "Level IV",
+        flavorText: "This Giant Bird Digimon is protected by fire!",
+        type: "Giant Bird",
+        attribute: "Data",
+        field: [
+            "Wind Guardians"
+        ],
+        attacks: [
+            "Meteor Wing",
+            "Fire Flap",
+            "Guard (A→0)"
+        ],
+        attackPower: [
+            410, 360, 200
+        ],
+        lostPoints: [
+            20, 10, 10, 10
+        ],
+        abilitiesField: [
+            "◎Has the ability \"sky\"."
+        ]
+    }, {
+        cardName: "Gabumon",
+        cardNumber: "St-5",
+        frameColor: "blue",
+        cardArt: "https://wikimon.net/images/d/db/St-5.jpg",
+        battleType: "B",
+        evoFuseAppear: "evolution",
+        evoReqField: [
+            ["Unless this Digimon is replaced with another Level III Digimon, it cannot be sent to the Dark Area."]
+        ],
+        level: "Level III",
+        flavorText: "This shy guy covers itself with a fur coat!",
+        type: "Reptile",
+        attribute: "Data",
+        field: [
+            "Nature Spirits"
+        ],
+        attacks: [
+            "Petit Fire",
+            "Horn Attack",
+            "Guard (A→0)"
+        ],
+        attackPower: [
+            350, 240, 150
+        ],
+        lostPoints: [
+            10, 10, 10, 10
+        ]
+    }, {
+        cardName: "Garurumon",
+        cardNumber: "St-6",
+        frameColor: "blue",
+        cardArt: "https://wikimon.net/images/4/49/St-6.jpg",
+        battleType: "B",
+        evoFuseAppear: "evolution",
+        evoReqField: [
+            [
+                "Gabumon",
+                "Bakumon"
+            ],
+            [
+                "✕✕",
+                "✕"
+            ]
+        ],
+        level: "Level IV",
+        flavorText: "Its fur is as hard as mythril!",
+        type: "Beast",
+        attribute: "Data",
+        field: [
+            "Nightmare Soldiers"
+        ],
+        attacks: [
+            "Fox Fire",
+            "Body Blow",
+            "Guard (A→0)"
+        ],
+        attackPower: [
+            410, 330, 180
+        ],
+        lostPoints: [
+            20, 10, 10, 10
+        ]
+    }, {
+        cardName: "Tentomon",
+        cardNumber: "St-7",
+        frameColor: "blue",
+        cardArt: "https://wikimon.net/images/2/25/St-7.jpg",
+        battleType: "A",
+        evoFuseAppear: "evolution",
+        evoReqField: [
+            [
+                "Unless this Digimon is replaced with another Level III Digimon, it cannot be sent to the Dark Area."
+            ]
+        ],
+        level: "Level III",
+        flavorText: "The knowledgeable professor of the Digital World!",
+        type: "Insect",
+        attribute: "Vaccine",
+        field: [
+            "Nature Spirits"
+        ],
+        attacks: [
+            "Petit Thunder",
+            "Hard Claw",
+            "Guard (A→0)"
+        ],
+        attackPower: [
+            320, 250, 120
+        ],
+        lostPoints: [
+            10, 10, 10, 10
+        ],
+        abilitiesField: [
+            "◎Has the ability \"sky\"."
+        ]
+    }, {
+        cardName: "Kabuterimon",
+        cardNumber: "St-8",
+        frameColor: "blue",
+        cardArt: "https://wikimon.net/images/d/da/St-8.jpg",
+        battleType: "A",
+        evoFuseAppear: "evolution",
+        evoReqField: [
+            [
+                "Tentomon",
+                "Gabumon"
+            ],
+            [
+                "●●",
+                "●●"
+            ]
+        ],
+        level: "Level IV",
+        flavorText: "It has an iron defense! It attacks with its great horn!",
+        type: "Insect",
+        attribute: "Vaccine",
+        field: [
+            "Nature Spirits"
+        ],
+        attacks: [
+            "Mega Blaster",
+            "Beet Horn",
+            "Guard (A→0)"
+        ],
+        attackPower: [
+            420, 340, 190
+        ],
+        lostPoints: [
+            20, 10, 10, 10
+        ],
+        abilitiesField: [
+            "◎Has the ability \"sky\"."
+        ]
+    }, {
+        cardName: "Palmon",
+        cardNumber: "St-10",
+        frameColor: "blue",
+        cardArt: "https://wikimon.net/images/e/eb/St-9.jpg",
+        battleType: "A",
+        evoFuseAppear: "evolution",
+        evoReqField: [
+            [
+                "Unless this Digimon is replaced with another Level III Digimon, it cannot be sent to the Dark Area."
+            ]
+        ],
+        level: "Level III",
+        flavorText: "The flower on its head is pink. It drives enemies away with its stench!",
+        type: "Plant",
+        attribute: "Data",
+        field: [
+            "Nature Spirits"
+        ],
+        attacks: [
+            "Poison Ivy",
+            "Stinky Stench",
+            "Guard (A→0)"
+        ],
+        attackPower: [
+            350, 350, 150
+        ],
+        lostPoints: [
+            10, 10, 10, 10
+        ]
+    }, {
+        cardName: "Togemon",
+        cardNumber: "St-10",
+        frameColor: "blue",
+        cardArt: "https://wikimon.net/images/8/8b/St-10.jpg",
+        battleType: "C",
+        evoFuseAppear: "evolution",
+        evoReqField: [
+            [
+                "Palmon",
+                "Agumon"
+            ],
+            [
+                "●●",
+                "●●"
+            ]
+        ],
+        level: "Level IV",
+        flavorText: "Beware of its needles, it hurts if you touch them!",
+        type: "Plant",
+        attribute: "Virus",
+        field: [
+            "Wind Guardians"
+        ],
+        attacks: [
+            "Chikuchiku Bang Bang",
+            "Mach Jab",
+            "Guard (A→0)"
+        ],
+        attackPower: [
+            380, 300, 180
+        ],
+        lostPoints: [
+            20, 10, 10, 10
+        ]
     }
 ]

@@ -16,7 +16,6 @@
                 <p>Search the database by Name or Description.</p>
                 <form action="/cards" method="GET">
                     <input type="search" class="form-control mb-3" name="cardName" placeholder="Search Card Database...">
-                    <input type="submit">
                     <div class="row mb-3">
                         <div class="col">
                             <select class="form-select" aria-label="Select Frame Color" name="frameColor">
@@ -44,7 +43,7 @@
                         </div>
                         <div class="col">
                             <select class="form-select" aria-label="Select Digimon Type" name="type">
-                                <option selected>Select Type</option>
+                                <option selected value="">Select Type</option>
                                 <option value="Amphibian">Amphibian</option>
                                 <option value="Ancient Beast">Ancient Beast</option>
                                 <option value="Ancient Fish">Ancient Fish</option>
@@ -77,6 +76,43 @@
                             </select>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <select class="form-select" aria-label="Select Battle Type" name="battleType">
+                                <option selected value="">Select Battle Type</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="Select Group" name="group">
+                                <option selected value="">Select Group</option>
+                                <option value="Royal Knights">Royal Knights</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="Select Attribute" name="attribute">
+                                <option selected value="">Select Attribute</option>
+                                <option value="Vaccine">Vaccine</option>
+                                <option value="Data">Data</option>
+                                <option value="Virus">Virus</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="Select Field" name="field">
+                                <option selected value="">Select Field</option>
+                                <option value="Deep Savers">Deep Savers</option>
+                                <option value="Metal Empire">Metal Empire</option>
+                                <option value="Nightmare Soldiers">Nightmare Soldiers</option>
+                                <option value="Nature Spirits">Nature Spirits</option>
+                                <option value="Unknown">Unknown</option>
+                                <option value="Virus Busters">Virus Busters</option>
+                                <option value="Wind Guardians">Wind Guardians</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input class="mb-3" type="submit">
                 </form>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-auto g-3">
                     <% for (let card of cards) { %>
