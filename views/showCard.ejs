@@ -26,8 +26,16 @@
                                     <img title="<%= cards.cardName %>" src="<%= cards.cardArt %>">
                                 </figure>
                             </div>
+                            <div class="btn-group" role="group" aria-label="IDK">
+                                <button type="button" class="btn btn-warning">Edit</button>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                         </div>
-                        <div class="col">
+                    <% if (cards.frameColor == "blue") { %>
+                        <div class="col border border-5 border-primary">
+                    <% } else if (cards.frameColor == "red") { %>
+                        <div class="col border border-5 border-danger"></div>
+                    <% } %>
                             <div class="card-name">
                                 <h1><%= cards.cardName %></h1>
                                 <h5><%= cards.cardNumber %></h5>
@@ -163,13 +171,17 @@
                                         <div class="card text-start mb-2 text-bg-light">
                                             <div class="card-body">
                                                 <h5 class="card-title">Evolution Requirements</h5>
-                                                <% for (let i = 0; i < cards.evoReqField[0].length; i++) { %>
-                                                    <% if (cards.evoReqField[0][i] == "{{LV3}}") { %>
-                                                        <p class="card-text">
-                                                            Unless this Digimon is replaced with another Level III Digimon, it cannot be sent to the Dark Area.
-                                                        </p>
+                                                <ul class="list-group list-group-flush">
+                                                    <% for (let i = 0; i < cards.evoReqField[0].length; i++) { %>
+                                                        <% if (cards.evoReqField[0][i] == "{{LV3}}") { %>
+                                                            <p class="card-text">
+                                                                Unless this Digimon is replaced with another Level III Digimon, it cannot be sent to the Dark Area.
+                                                            </p>
+                                                        <% } else { %>
+                                                            <li class="list-group-item"><%= `${cards.evoReqField[0][i]} ⇒ ${cards.evoReqField[1][i]}` %></li>
+                                                        <% } %>
                                                     <% } %>
-                                                <% } %>
+                                                </ul>
                                             </div>
                                         </div>
                                     <% } %>
@@ -184,21 +196,105 @@
                                     <div class="card text-start mb-2 text-bg-light">
                                         <div class="card-body">
                                             <h5 class="card-title">Information/Coordination Field</h5>
-                                            <% if (typeof cards.group !== 'undefined') { %>
-                                                <p class="card-text"><%= cards.infoField %></p>
+                                            <% if (cards.infoField.length !== 0) { %>
+                                                <% for (let i = 0; i < cards.infoField.length; i++) { %>
+                                                    <li class="list-group-item"><%= cards.infoField[i] %></li>
+                                                <% } %>
                                             <% } else { %>
-                                                <p class="card-text">N/A</p>
+                                                <li class="list-group-item">N/A</li>
                                             <% } %>
                                         </div>
                                     </div>
                                     <div class="card text-start mb-2 text-bg-light">
                                         <div class="card-body">
                                             <h5 class="card-title">Special Abilities</h5>
-                                            <% if (typeof cards.group !== 'undefined') { %>
-                                                <p class="card-text"><%= cards.abilitiesField %></p>
+                                            <% if (cards.abilitiesField.length !== 0) { %>
+                                                <% for (let i = 0; i < cards.abilitiesField.length; i++) { %>
+                                                    <li class="list-group-item"><%= cards.abilitiesField[i] %></li>
+                                                <% } %>
                                             <% } else { %>
                                                 <p class="card-text">N/A</p>
                                             <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } else { %>
+                                <div class="container text-center">
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <% if (cards.icon == "program") { %>
+                                                <div class="card text-bg-primary">
+                                                    <div class="card-header">
+                                                        <p class="card-text">Program</p>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <%= cards.capacity %>
+                                                    </div>
+                                                </div>
+                                            <% } else if (cards.icon == "item") { %>
+                                                <div class="card text-bg-primary ">
+                                                    <div class="card-header">
+                                                        <p class="card-text">Item</p>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <%= cards.capacity %>
+                                                    </div>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card text-start">
+                                                <div class="card-header">
+                                                    <b>Activation Timing: </b><%= cards.time %>
+                                                </div>
+                                                <div class="card-body">
+                                                    <% for (let i = 0; i < cards.timeField.length; i++) { %>
+                                                        <li class="list-group-item"><%= cards.timeField[i] %></li>
+                                                    <% } %>
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-2 text-start">
+                                        <div class="card-header">
+                                            Category
+                                        </div>
+                                        <div class="card-body">
+                                            <%= cards.category %>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-2 text-start">
+                                        <div class="card-header">
+                                            Cost
+                                        </div>
+                                        <div class="card-body">
+                                            <%= cards.cost %>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-2 text-start">
+                                        <div class="card-header">
+                                            Requirements
+                                        </div>
+                                        <div class="card-body">
+                                            <%= cards.requirements %>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-2 text-start">
+                                        <div class="card-header">
+                                            Effects
+                                        </div>
+                                        <div class="card-body">
+                                            <% for (let i = 0; i < cards.effectsField.length; i++) { %>
+                                                <li class="list-group-item"><%= cards.effectsField[i] %></li>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-2 text-start">
+                                        <div class="card-header">
+                                            Limit
+                                        </div>
+                                        <div class="card-body">
+                                            <%= cards.limit %>
                                         </div>
                                     </div>
                                 </div>

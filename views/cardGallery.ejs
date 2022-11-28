@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HTML 5 Boilerplate</title>
+        <link rel="stylesheet" href="style.css">
+        <%- include ('./partials/bootstrap.ejs') %>
+    </head>
+    <body>
+        <%- include ('./partials/navbar.ejs') %>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <h1 class="mt-5">Card Database</h1>
+                <p>Search the database by Name or Description.</p>
+                <form action="/cards" method="GET">
+                    <input type="search" class="form-control mb-3" name="cardName" placeholder="Search Card Database...">
+                    <input type="submit">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <select class="form-select" aria-label="Select Frame Color" name="frameColor">
+                                <option selected value="">Select Frame Color</option>
+                                <option value="blue">Blue</option>
+                                <option value="red">Red</option>
+                                <option value="gold">Gold</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="Select Card Type" name="cardType">
+                                <option selected value="">Select Card Type</option>
+                                <option value="digimon">Digimon</option>
+                                <option value="option">Option</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="Select Level" name="level">
+                                <option selected value="">Select Level</option>
+                                <option value="Level III">Level III</option>
+                                <option value="Level IV">Level IV</option>
+                                <option value="Perfect">Perfect</option>
+                                <option value="Ultimate">Ultimate</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="Select Digimon Type" name="type">
+                                <option selected>Select Type</option>
+                                <option value="Amphibian">Amphibian</option>
+                                <option value="Ancient Beast">Ancient Beast</option>
+                                <option value="Ancient Fish">Ancient Fish</option>
+                                <option value="Angel">Angel</option>
+                                <option value="Aquatic Beast Man">Aquatic Beast Man</option>
+                                <option value="Aquatic Mammal">Aquatic Mammal</option>
+                                <option value="Beast">Beast</option>
+                                <option value="Beast Man">Beast Man</option>
+                                <option value="Ceratopsian">Ceratopsian</option>
+                                <option value="Chick">Chick</option>
+                                <option value="Composite">Composite</option>
+                                <option value="Demon Man">Demon Man</option>
+                                <option value="Dinosaur">Dinosaur</option>
+                                <option value="Fairy">Fairy</option>
+                                <option value="Flame">Flame</option>
+                                <option value="Ghost">Ghost</option>
+                                <option value="Giant Bird">Giant Bird</option>
+                                <option value="Insect">Insect</option>
+                                <option value="Larva">Larva</option>
+                                <option value="Mammal">Mammal</option>
+                                <option value="Marine Animal">Marine Animal</option>
+                                <option value="Mollusk">Mollusk</option>
+                                <option value="Mutant">Mutant</option>
+                                <option value="Ore">Ore</option>
+                                <option value="Plant">Plant</option>
+                                <option value="Reptile">Reptile</option>
+                                <option value="Rock">Rock</option>
+                                <option value="Skeleton">Skeleton</option>
+                                <option value="Small Devil">Small Devil</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-auto g-3">
+                    <% for (let card of cards) { %>
+                        <div class="col">
+                            <div class="card shadow-sm" style="width:200px">
+                                <a href="/cards/<%= card._id %>">
+                                    <img src="<%= card.cardArt %>" class="img-fluid img-thumbnail">
+                                </a>
+                            </div>
+                        </div>
+                    <% } %>    
+                </div>
+            </div>
+        </div>
+        <script>
+            const filterCard = () => {
+                const frameValue = document.getElementById("frameColor")
+                console.log(frameValue.value)
+            }
+        </script>
+    </body>
+</html>

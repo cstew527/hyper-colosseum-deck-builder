@@ -112,9 +112,9 @@ module.exports = [
         icon: "item",
         capacity: "+30",
         time: "Battle Phase",
-        effects: [
-            "During battle, your attack becomes A regardless of the opponent's battle type.",
-            "At the end of the turn during which this card was used, send it to the Dark Area."
+        effectsField: [
+            "◎ During battle, your attack becomes A regardless of the opponent's battle type.",
+            "◎ At the end of the turn during which this card was used, send it to the Dark Area."
         ]
     }, {
         cardName: "Defense Plug-In C",
@@ -124,9 +124,9 @@ module.exports = [
         icon: "item",
         capacity: "+50",
         time: "Battle Phase",
-        effects: [
-            "During battle, your attack becomes C regardless of the opponent's battle type.",
-            "At the end of the turn during which this card was used, send it to the Dark Area."
+        effectsField: [
+            "◎ During battle, your attack becomes C regardless of the opponent's battle type.",
+            "◎ At the end of the turn during which this card was used, send it to the Dark Area."
         ]
     }, {
         cardName: "If I Lose I'm Taking You with Me!",
@@ -140,23 +140,23 @@ module.exports = [
             "Send out this card face-up."
         ],
         effectsField: [
-            "When you lose the battle, send the top 3 cards of the opponent's Net Ocean to the Dark Area.",
-            "At the end of the Battle Phase of the turn during which this card was played, send it to the Dark Area."
+            "◎ When you lose the battle, send the top 3 cards of the opponent's Net Ocean to the Dark Area.",
+            "◎ At the end of the Battle Phase of the turn during which this card was played, send it to the Dark Area."
         ]
     }, {
         cardName: "Just a Little Metal Enhancement",
         cardNumber: "St-53",
         frameColor: "blue",
         cardArt: "https://i.imgur.com/3NpKI3E.jpg",
-        icon: "Program",
+        icon: "program",
         capacity: "+40",
         time: "Battle Phase",
         timeField: [
             "Choose one card from your hand and send it to the Dark Area."
         ],
         effectsField: [
-            "Add 50 to your attack power.",
-            "At the end of the turn during which this card was used, send it to the Dark Area."
+            "◎ Add 50 to your attack power.",
+            "◎ At the end of the turn during which this card was used, send it to the Dark Area."
         ]
     }, {
         cardName: "Greymon",
@@ -167,7 +167,7 @@ module.exports = [
         evoFuseAppear: "evolution",
         evoReqField: [
             ["Agumon"],
-            ["OO"]
+            ["●●"]
         ],
         level: "Level IV",
         flavorText: "It looks scary, but it's very intelligent!",

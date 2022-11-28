@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>New Cards</title>
+        <%- include ('./partials/bootstrap.ejs') %>
+    </head>
+    <body>
+        <%- include ('./partials/navbar.ejs') %>
+        <div class="container">
+            <h1 class="mt-5">Card Creator</h1>
+            <div class="row">
+                <div class="col">
+                    <form action="/cards" method="POST">
+                        <div class="mb-3">
+                            <label for="cardName" class="form-label">Card Name</label>
+                            <input type="text" class="form-control" id="cardName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="frameColor" class="form-label">Frame Color</label>
+                            <select class="form-select" aria-label="frameColor">
+                                <option selected>Frame Color</option>
+                                <option value="1">Blue</option>
+                                <option value="2">Red</option>
+                                <option value="3">Gold</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardArt" class="form-label">Card Art URL</label>
+                            <input type="url" class="form-control" id="cardArt">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardType" class="form-label">Card Type</label>
+                            <select class="form-select" aria-label="cardType">
+                                <option selected>Card Type</option>
+                                <option value="1">Digimon</option>
+                                <option value="2">Option</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="battleType" class="form-label">Battle Type</label>
+                            <select class="form-select" aria-label="battleType">
+                                <option selected>Battle Type</option>
+                                <option value="1">A</option>
+                                <option value="2">B</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 input-group">
+                            <select class="form-select" aria-label="evoRequirements">
+                                <option selected>Requirements</option>
+                                <option value="1">Evolution Requirements</option>
+                                <option value="2">Fusion Requirements</option>
+                                <option value="3">Appearance Requirements</option>
+                            </select>
+                            <input type="text" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

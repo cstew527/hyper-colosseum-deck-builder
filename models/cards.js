@@ -2,10 +2,10 @@ const mongoose = require('mongoose')
 
 const cardSchema = new mongoose.Schema({
     // All cards have these
-    cardName: {type: String, required: true},
-    cardNumber: {type: String, required: true},
-    frameColor: {type: String, required: true},
-    cardArt: {type: String, required: true},
+    cardName: String,
+    cardNumber: String,
+    frameColor: String,
+    cardArt: String,
     // Digimon specific
     battleType: String,
     evoFuseAppear: String,
@@ -32,6 +32,7 @@ const cardSchema = new mongoose.Schema({
     effectsField: [String],
     limit: String
 })
+
 
 
 const cardCollection = mongoose.model('Card', cardSchema)
