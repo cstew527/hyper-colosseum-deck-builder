@@ -9,62 +9,206 @@
     </head>
     <body>
         <%- include ('./partials/navbar.ejs') %>
+        <h1 class="mt-5 text-center">Create New Card</h1>
         <div class="container">
-            <h1 class="mt-5">Card Creator</h1>
-            <div class="row">
-                <div class="col">
-                    <form action="/cards" method="POST">
-                        <div class="mb-3">
-                            <label for="cardName" class="form-label">Card Name</label>
-                            <input type="text" class="form-control" id="cardName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="cardNumber" class="form-label">Card Number</label>
-                            <input type="text" class="form-control" id="cardNumber">
-                        </div>
-                        <div class="mb-3">
-                            <label for="frameColor" class="form-label">Frame Color</label>
-                            <select class="form-select" aria-label="frameColor">
-                                <option selected>Frame Color</option>
-                                <option value="1">Blue</option>
-                                <option value="2">Red</option>
-                                <option value="3">Gold</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="cardArt" class="form-label">Card Art URL</label>
-                            <input type="url" class="form-control" id="cardArt">
-                        </div>
-                        <div class="mb-3">
-                            <label for="cardType" class="form-label">Card Type</label>
-                            <select class="form-select" aria-label="cardType">
-                                <option selected>Card Type</option>
-                                <option value="1">Digimon</option>
-                                <option value="2">Option</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="battleType" class="form-label">Battle Type</label>
-                            <select class="form-select" aria-label="battleType">
-                                <option selected>Battle Type</option>
-                                <option value="1">A</option>
-                                <option value="2">B</option>
-                                <option value="3">C</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 input-group">
-                            <select class="form-select" aria-label="evoRequirements">
-                                <option selected>Requirements</option>
-                                <option value="1">Evolution Requirements</option>
-                                <option value="2">Fusion Requirements</option>
-                                <option value="3">Appearance Requirements</option>
-                            </select>
-                            <input type="text" class="form-control">
-                        </div>
-                    </form>
+            <form action="/cards" method="POST">
+                <!-- Change card name -->
+                <div class="mb-3">
+                    <label for="cardName" class="form-label">Card Name</label>
+                    <input type="text" class="form-control" name="cardName" id="cardName">
                 </div>
-            </div>
-
+                <!-- Change card number -->
+                <div class="mb-3">
+                    <label for="cardNumber" class="form-label">Card Number</label>
+                    <input type="text" class="form-control" name="cardNumber" id="cardNumber">
+                </div>
+                <!-- Change frame color -->
+                <div class="mb-3">
+                    <label for="frameColor" class="form-label">Frame Color</label>
+                    <select name="frameColor" id="frameColor" class="form-select">
+                        <option value="blue">Blue</option>
+                        <option value="red">Red</option>
+                        <option value="gold">Gold</option>
+                    </select>
+                </div>
+                <!-- Change card art -->
+                <div class="mb-3">
+                    <label for="cardArt" class="form-label">Card Art</label>
+                    <input type="url" class="form-control" name="cardArt" id="cardArt">
+                </div>
+                <!-- Change battle type -->
+                <div class="mb-3">
+                    <label for="battleType" class="form-label">Battle Type</label>
+                    <select name="battleType" id="battleType" class="form-select">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                </div>
+                <!-- Evolution, Fusion, or Appearance -->
+                <div class="mb-3">
+                    <label for="evoFuseAppear" class="form-label">Evolution, Fusion, or Appearance</label>
+                    <select name="evoFuseAppear" id="evoFuseAppear" class="form-select">
+                        <option value="evolution" selected>Evolution</option>
+                        <option value="fusion">Fusion</option>
+                        <option value="appearance">Appearance</option>
+                    </select>
+                </div>
+                <!-- Requirements Field -->
+                <div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="evoReqField[][]" id="evoReqField">
+                        <span><h3> ⇒ </h3></span>
+                        <input type="text" class="form-control" name="evoReqField[][]" id="evoReqField" >
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="evoReqField[][]" id="evoReqField">
+                        <span><h3> ⇒ </h3></span>
+                        <input type="text" class="form-control" name="evoReqField[][]" id="evoReqField">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="evoReqField[][]" id="evoReqField">
+                        <span><h3> ⇒ </h3></span>
+                        <input type="text" class="form-control" name="evoReqField[][]" id="evoReqField">
+                    </div>
+                </div>
+                <!-- Level -->
+                <div class="mb-3">
+                    <label for="level" class="form-label">Level</label>
+                    <select name="Level" id="Level" class="form-select">
+                        <option value="Level III" selected>Level III</option>
+                        <option value="Level IV">Level IV</option>
+                        <option value="Perfect">Perfect</option>
+                        <option value="Ultimate">Ultimate</option>
+                    </select>
+                </div>
+                <!-- Flavor Text -->
+                <div class="mb-3">
+                    <label for="flavorText" class="form-label">Flavor Text</label>
+                    <input type="text" class="form-control" name="flavorText" id="flavorText">
+                </div>
+                <!-- Type -->
+                <div class="mb-3">
+                    <label for="type" class="form-label">Type</label>
+                    <input type="text" class="form-control" name="type" id="type">
+                </div>
+                <!-- Attribute -->
+                <div class="mb-3">
+                    <label for="attribute" class="form-label">Attribute</label>
+                    <input type="text" class="form-control" name="attribute" id="attribute">
+                </div>
+                <!-- Group -->
+                <div class="mb-3">
+                    <label for="group" class="form-label">Group</label>
+                    <input type="text" class="form-control" name="group" id="group">
+                </div>
+                <!-- Field -->
+                <div class="mb-3">
+                    <label for="field" class="form-label">Field</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="field[]" id="field">
+                        <input type="text" class="form-control" name="field[]" id="field">
+                    </div>
+                </div>
+                <!-- Information Field -->
+                <div class="mb-3">
+                    <label for="infoField" class="form-label">Information Field</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="infoField[]" id="infoField">
+                        <input type="text" class="form-control" name="infoField[]" id="infoField">
+                        <input type="text" class="form-control" name="infoField[]" id="infoField">
+                    </div>
+                </div>
+                <!-- Attacks -->
+                <div class="mb-3">
+                    <label for="attacks" class="form-label">Attacks</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="attacks[]" id="attacks">
+                        <input type="number" class="form-control" name="attackPower[]" id="attackPower">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="attacks[]" id="attacks">
+                        <input type="number" class="form-control" name="attackPower[]" id="attackPower">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="attacks[]" id="attacks">
+                        <input type="number" class="form-control" name="attackPower[]" id="attackPower">
+                    </div>
+                </div>
+                <!-- Lost Points -->
+                <div class="mb-3">
+                    <label for="lostPoints" class="form-label">Lost Points</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="lostPoints[]" id="lostPoints">
+                        <input type="number" class="form-control" name="lostPoints[]" id="lostPoints">
+                        <input type="number" class="form-control" name="lostPoints[]" id="lostPoints">
+                        <input type="number" class="form-control" name="lostPoints[]" id="lostPoints">
+                    </div>
+                </div>
+                <!-- Abilities Field -->
+                <div class="mb-3">
+                    <label for="abilitiesField" class="form-label">Abilities Field</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="abilitiesField[]" id="abilitiesField">
+                        <input type="text" class="form-control" name="abilitiesField[]" id="abilitiesField">
+                        <input type="text" class="form-control" name="abilitiesField[]" id="abilitiesField">
+                    </div>
+                </div>
+                <!-- Icon -->
+                <div class="mb-3">
+                    <label for="icon" class="form-label">Icon</label>
+                    <select name="icon" id="icon" class="form-select">
+                        <option value="program" selected>Program</option>
+                        <option value="item">Item</option>
+                        <option value="field">Field</option>
+                    </select>
+                </div>
+                <!-- Capacity -->
+                <div class="mb-3">
+                    <label for="capacity" class="form-label">Capacity</label>
+                    <input type="text" class="form-control" name="capacity" id="capacity">
+                </div>
+                <!-- Activation Timing Field -->
+                <div class="mb-3">
+                    <label for="timeField" class="form-label">Activation Timing Field</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="timeField[]" id="timeField">
+                        <input type="text" class="form-control" name="timeField[]" id="timeField">
+                        <input type="text" class="form-control" name="timeField[]" id="timeField">
+                    </div>
+                </div>
+                <!-- Category -->
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <input type="text" class="form-control" name="category" id="category">
+                </div>
+                <!-- Cost -->
+                <div class="mb-3">
+                    <label for="cost" class="form-label">Cost</label>
+                    <input type="text" class="form-control" name="cost" id="cost">
+                </div>
+                <!-- Requirements -->
+                <div class="mb-3">
+                    <label for="requirements" class="form-label">Requirements</label>
+                    <input type="text" class="form-control" name="requirements" id="requirements">
+                </div>
+                <!-- Effects Field -->
+                <div class="mb-3">
+                    <label for="effectsField" class="form-label">Effects Field</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="effectsField[]" id="effectsField">
+                        <input type="text" class="form-control" name="effectsField[]" id="effectsField">
+                        <input type="text" class="form-control" name="effectsField[]" id="effectsField">
+                    </div>
+                </div>
+                <!-- Limit -->
+                <div class="mb-3">
+                    <label for="limit" class="form-label">Limit</label>
+                    <input type="text" class="form-control" name="limit" id="limit">
+                </div>
+                <!-- Submit Button -->
+                <input type="submit" value="Create Card" class="mb-3"/>
+            </form>
         </div>
     </body>
 </html>

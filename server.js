@@ -98,7 +98,20 @@ app.get('/new_card', (req, res) => {
 })
 
 // Edit card page
+app.get('/cards/:_id/edit', (req, res) => {
+    Card.findById(req.params._id, (err, foundCard) => {
+        res.render('editCard.ejs', {
+            cards: foundCard
+        })
+    })
+})
 
+// Card put route
+app.put('/:_id', (req, res) => {
+    Card.findByIdAndUpdate(req.params._id, req.body, () => {
+        res.redirect('/cards')
+    })
+})
 
 app.listen(3000, () => {
     console.log('listening')

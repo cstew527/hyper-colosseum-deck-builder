@@ -27,8 +27,8 @@
                                 </figure>
                             </div>
                             <div class="btn-group" role="group" aria-label="IDK">
-                                <button type="button" class="btn btn-warning">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
+                                <a href="/cards/<%= cards._id %>/edit" class="btn btn-warning">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
                             </div>
                         </div>
                     <% if (cards.frameColor == "blue") { %>
