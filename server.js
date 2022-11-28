@@ -4,6 +4,7 @@ const app = express()
 const Card = require('./models/cards.js')
 const cardInfo = require('./models/cardSeed.js')
 const Deck = require('./models/decks.js')
+const methodOverride = require('method-override')
 
 // Card.collection.drop()
 
@@ -13,6 +14,9 @@ const Deck = require('./models/decks.js')
 //     if (err) console.log (err.message)
 //     console.log("add provided cards data")
 // })
+
+app.use(methodOverride('_method'))
+app.use(express.urlencoded({extended: true}))
 
 
 // Home page
@@ -97,6 +101,12 @@ app.get('/new_card', (req, res) => {
     res.render('newCard.ejs')
 })
 
+app.post('/cards/', (req, res) => {
+    Card.create(req.body, (error, createdCard) => {
+        res.send(createdCard)
+    })
+})
+
 // Edit card page
 app.get('/cards/:_id/edit', (req, res) => {
     Card.findById(req.params._id, (err, foundCard) => {
@@ -107,11 +117,21 @@ app.get('/cards/:_id/edit', (req, res) => {
 })
 
 // Card put route
-app.put('/:_id', (req, res) => {
-    Card.findByIdAndUpdate(req.params._id, req.body, () => {
+app.put('/cards/:_id', (req, res) => {
+    Card.findByIdAndUpdate(req.params._id, req.body, (err, updatedModel) => {
+        // res.send(updatedModel)
         res.redirect('/cards')
     })
 })
+
+// Card delete route
+app.delete('/cards/:_id', (req, res) => {
+    Card.findByIdAndRemove(req.params._id, (err, data) => {
+        res.redirect('/cards')
+    })
+})
+
+
 
 app.listen(3000, () => {
     console.log('listening')

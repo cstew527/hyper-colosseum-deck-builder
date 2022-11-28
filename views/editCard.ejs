@@ -11,19 +11,19 @@
         <%- include ('./partials/navbar.ejs') %>
         <h1 class="mt-5 text-center">Edit <%= cards.cardName %></h1>
         <div class="container">
-            <form action="/cards/<%= cards._id%>?_method=PUT" method="POST">
+            <form action="/cards/<%= cards._id %>?_method=PUT" method="POST">
                 <!-- Change card name -->
                 <div class="mb-3">
                     <label for="cardName" class="form-label">Card Name</label>
-                    <input type="text" class="form-control" name="cardName" id="cardName" value=<%= cards.cardName%>>
+                    <input type="text" class="form-control" name="cardName"  value=<%= cards.cardName%>>
                 </div>
                 <!-- Change card number -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="cardNumber" class="form-label">Card Number</label>
                     <input type="text" class="form-control" name="cardNumber" id="cardNumber" value=<%= cards.cardNumber%>>
-                </div>
+                </div> -->
                 <!-- Change frame color -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="frameColor" class="form-label">Frame Color</label>
                     <select name="frameColor" id="frameColor" class="form-select">
                     <%if (cards.frameColor == 'blue') { %>
@@ -40,14 +40,14 @@
                         <option value="gold" selected>Gold</option>
                     <% } %>
                     </select>
-                </div>
+                </div> -->
                 <!-- Change card art -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="cardArt" class="form-label">Card Art</label>
                     <input type="url" class="form-control" name="cardArt" id="cardArt" value=<%= cards.cardArt%>>
-                </div>
+                </div> -->
                 <!-- Change battle type -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="battleType" class="form-label">Battle Type</label>
                     <select name="battleType" id="battleType" class="form-select">
                     <%if (cards.battleType == 'A') { %>
@@ -64,9 +64,9 @@
                         <option value="C" selected>C</option>
                     <% } %>
                     </select>
-                </div>
+                </div> -->
                 <!-- Evolution, Fusion, or Appearance -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="evoFuseAppear" class="form-label">Evolution, Fusion, or Appearance</label>
                     <select name="evoFuseAppear" id="evoFuseAppear" class="form-select">
                     <%if (cards.evoFuseAppear == 'evolution') { %>
@@ -83,9 +83,9 @@
                         <option value="appearance" selected>Appearance</option>
                     <% } %>
                     </select>
-                </div>
+                </div> -->
                 <!-- Requirements Field -->
-                <div>
+                <!-- <div>
                     <div class="input-group">
                         <input type="text" class="form-control" name="evoReqField[][]" id="evoReqField" value="<%= cards.evoReqField[0][0] %>">
                         <span><h3> ⇒ </h3></span>
@@ -101,9 +101,9 @@
                         <span><h3> ⇒ </h3></span>
                         <input type="text" class="form-control" name="evoReqField[][]" id="evoReqField" value="<%= cards.evoReqField[1][2] %>">
                     </div>
-                </div>
+                </div> -->
                 <!-- Level -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="level" class="form-label">Level</label>
                     <select name="Level" id="Level" class="form-select">
                     <%if (cards.level == 'Level III') { %>
@@ -128,46 +128,46 @@
                         <option value="Ultimate" selected>Ultimate</option>
                     <% } %>
                     </select>
-                </div>
+                </div> -->
                 <!-- Flavor Text -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="flavorText" class="form-label">Flavor Text</label>
                     <input type="text" class="form-control" name="flavorText" id="flavorText" value="<%= cards.flavorText%>">
-                </div>
+                </div> -->
                 <!-- Type -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="type" class="form-label">Type</label>
                     <input type="text" class="form-control" name="type" id="type" value="<%= cards.type%>">
-                </div>
+                </div> -->
                 <!-- Attribute -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="attribute" class="form-label">Attribute</label>
                     <input type="text" class="form-control" name="attribute" id="attribute" value="<%= cards.attribute%>">
-                </div>
+                </div> -->
                 <!-- Group -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="group" class="form-label">Group</label>
                     <input type="text" class="form-control" name="group" id="group" value="<%= cards.group%>">
-                </div>
+                </div> -->
                 <!-- Field -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="field" class="form-label">Field</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="field[]" id="field" value="<%= cards.field[0] %>">
                         <input type="text" class="form-control" name="field[]" id="field" value="<%= cards.field[1] %>">
                     </div>
-                </div>
+                </div> -->
                 <!-- Information Field -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="infoField" class="form-label">Information Field</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="infoField[]" id="infoField" value="<%= cards.infoField[0] %>">
                         <input type="text" class="form-control" name="infoField[]" id="infoField" value="<%= cards.infoField[1] %>">
                         <input type="text" class="form-control" name="infoField[]" id="infoField" value="<%= cards.infoField[2] %>">
                     </div>
-                </div>
+                </div> -->
                 <!-- Attacks -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="attacks" class="form-label">Attacks</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="attacks[]" id="attacks" value="<%= cards.attacks[0] %>">
@@ -181,9 +181,9 @@
                         <input type="text" class="form-control" name="attacks[]" id="attacks" value="<%= cards.attacks[2] %>">
                         <input type="number" class="form-control" name="attackPower[]" id="attackPower" value="<%= cards.attackPower[2] %>">
                     </div>
-                </div>
+                </div> -->
                 <!-- Lost Points -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="lostPoints" class="form-label">Lost Points</label>
                     <div class="input-group">
                         <input type="number" class="form-control" name="lostPoints[]" id="lostPoints" value="<%= cards.lostPoints[0] %>">
@@ -191,18 +191,18 @@
                         <input type="number" class="form-control" name="lostPoints[]" id="lostPoints" value="<%= cards.lostPoints[2] %>">
                         <input type="number" class="form-control" name="lostPoints[]" id="lostPoints" value="<%= cards.lostPoints[3] %>">
                     </div>
-                </div>
+                </div> -->
                 <!-- Abilities Field -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="abilitiesField" class="form-label">Abilities Field</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="abilitiesField[]" id="abilitiesField" value="<%= cards.abilitiesField[0] %>">
                         <input type="text" class="form-control" name="abilitiesField[]" id="abilitiesField" value="<%= cards.abilitiesField[1] %>">
                         <input type="text" class="form-control" name="abilitiesField[]" id="abilitiesField" value="<%= cards.abilitiesField[2] %>">
                     </div>
-                </div>
+                </div> -->
                 <!-- Icon -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="icon" class="form-label">Icon</label>
                     <select name="icon" id="icon" class="form-select">
                     <%if (cards.level == 'program') { %>
@@ -223,52 +223,54 @@
                         <option value="field">Field</option>
                     <% } %>
                     </select>
-                </div>
+                </div> -->
                 <!-- Capacity -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="capacity" class="form-label">Capacity</label>
                     <input type="text" class="form-control" name="capacity" id="capacity" value="<%= cards.capacity%>">
-                </div>
+                </div> -->
                 <!-- Activation Timing Field -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="timeField" class="form-label">Activation Timing Field</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="timeField[]" id="timeField" value="<%= cards.timeField[0] %>">
                         <input type="text" class="form-control" name="timeField[]" id="timeField" value="<%= cards.timeField[1] %>">
                         <input type="text" class="form-control" name="timeField[]" id="timeField" value="<%= cards.timeField[2] %>">
                     </div>
-                </div>
+                </div> -->
                 <!-- Category -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="category" class="form-label">Category</label>
                     <input type="text" class="form-control" name="category" id="category" value="<%= cards.category%>">
-                </div>
+                </div> -->
                 <!-- Cost -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="cost" class="form-label">Cost</label>
                     <input type="text" class="form-control" name="cost" id="cost" value="<%= cards.cost%>">
-                </div>
+                </div> -->
                 <!-- Requirements -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="requirements" class="form-label">Requirements</label>
                     <input type="text" class="form-control" name="requirements" id="requirements" value="<%= cards.requirements%>">
-                </div>
+                </div> -->
                 <!-- Effects Field -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="effectsField" class="form-label">Effects Field</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="effectsField[]" id="effectsField" value="<%= cards.effectsField[0] %>">
                         <input type="text" class="form-control" name="effectsField[]" id="effectsField" value="<%= cards.effectsField[1] %>">
                         <input type="text" class="form-control" name="effectsField[]" id="effectsField" value="<%= cards.effectsField[2] %>">
                     </div>
-                </div>
+                </div> -->
                 <!-- Limit -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="limit" class="form-label">Limit</label>
                     <input type="text" class="form-control" name="limit" id="limit" value="<%= cards.limit%>">
-                </div>
+                </div> -->
                 <!-- Submit Button -->
-                <input type="submit" value="Update Card"/>
+                <!-- <input type="submit" value="Update Card" name="submit"/> -->
+                <button type="submit" class="btn btn-primary" name="submit">Update Card</button>
+
             </form>
         </div>
     </body>
